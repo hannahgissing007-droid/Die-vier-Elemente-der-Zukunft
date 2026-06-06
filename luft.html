@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUFT – Die vier Elemente der Zukunft</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+  :root {
+    --bg:           #060809;
+    --green:        #1a3a4a;
+    --green-mid:    #3a8098;
+    --green-bright: #88ccdd;
+    --green-glow:   rgba(136,204,221,0.65);
+    --line-glow:    0 0 6px rgba(136,204,221,0.9), 0 0 18px rgba(136,204,221,0.4);
+    --stone:        #6a7880;
+    --stone-dim:    #404a50;
+  }
+  .back-link { position:fixed; top:1.4rem; left:1.6rem; z-index:8500; font-family:'CommitMono',monospace; font-size:0.75rem; color:var(--text-dim); text-decoration:none; letter-spacing:0.15em; opacity:0.5; transition:opacity 0.2s; }
+  .back-link:hover { opacity:1; color:var(--green-bright); }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back-link" title="Zurück zur Übersicht">←</a>
+
+  <!-- SPINE CANVAS -->
+  <canvas id="spine-canvas"></canvas>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-label">Luft · wird geladen</div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar" id="lbar"></div>
+    </div>
+    <div class="loader-pct" id="lpct">0%</div>
+  </div>
+
+  <!-- PROGRESS -->
+  <div id="progress-bar"></div>
+
+  <section id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-center">
+      <div class="floating-square" id="floatSquare">
+        <div class="sq-inner"></div>
+        <div class="sq-corner tl"></div>
+        <div class="sq-corner tr"></div>
+        <div class="sq-corner bl"></div>
+        <div class="sq-corner br"></div>
+      </div>
+    </div>
+    <div class="hero-text" id="heroText">
+      <span class="hero-overline">Die vier Elemente der Zukunft · IV</span>
+      <h1 class="hero-title">LUFT</h1>
+      <p class="hero-sub">Freiheit · Leichtigkeit · Vision</p>
+    </div>
+    <div class="scroll-cue" id="scrollCue">
+      <span>Scrollen</span>
+      <div class="scroll-tick"></div>
+    </div>
+  </section>
+
+  <section id="network-section">
+    <canvas id="network-canvas"></canvas>
+    <div class="network-text">
+      <h2 class="net-heading" data-spring="fadeup">Eine Welt über den Wolken</h2>
+      <p class="net-body" data-spring="fadeup" data-delay="0.15">Schwebende Inseln, transparente Himmelsstädte und filigrane Membranarchitekturen — eine Zukunft, in der Grenzen verschwinden und Leichtigkeit zur Grundbedingung wird.</p>
+    </div>
+  </section>
+
+  <section id="cards-section">
+
+    <div class="cards-intro" data-spring="fadeup">
+      <span class="mono">Die Geschichte der Luft</span>
+      <h2>Eine Welt in 17 Bildern</h2>
+    </div>
+
+    <div class="path-cards" id="pathCards">
+
+      <article class="card-row" data-index="0">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Luft/ChatGPT Image 1. Juni 2026, 12_53_43 (1).png" alt="Über den Wolken">
+          <div class="card-hover-text">
+            <span class="chapter-tag">I · Die Vision</span>
+            <h3>Über den Wolken</h3>
+            <p>Schwebende Inseln treiben im Licht. Architektur, die die Schwerkraft vergessen hat.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">01</div>
+          <h3>Die erste Vision</h3>
+          <p>Eine Zivilisation, die aufgehört hat, den Boden zu brauchen.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="1">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Luft/ChatGPT Image 1. Juni 2026, 12_53_43 (2).png" alt="Filigrane Strukturen">
+          <div class="card-hover-text">
+            <span class="chapter-tag">II · Die Architektur</span>
+            <h3>Filigrane Strukturen</h3>
+            <p>Membranbauten aus hauchfeinen Materialien. Licht durchdringt alles. Masse ist ein Fehler.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">02</div>
+          <h3>Filigrane Strukturen</h3>
+          <p>So leicht, dass man vergisst, es zu sehen.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="2">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Luft/ChatGPT Image 1. Juni 2026, 12_54_44.png" alt="Transparente Welten">
+          <div class="card-hover-text">
+            <span class="chapter-tag">III · Das Licht</span>
+            <h3>Transparente Welten</h3>
+            <p>Glas, Membran, Licht. Die Stadt hat keine Geheimnisse mehr. Alles sichtbar, alles offen.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">03</div>
+          <h3>Transparente Welten</h3>
+          <p>Offenheit als Architekturprinzip.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="3">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Luft/ChatGPT Image 1. Juni 2026, 12_56_12 (1).png" alt="Gärten im Himmel">
+          <div class="card-hover-text">
+            <span class="chapter-tag">IV · Die Wolken</span>
+            <h3>Gärten im Himmel</h3>
+            <p>Wolkengärten schweben in Kilometern Höhe. Erde braucht keinen Boden mehr.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">04</div>
+          <h3>Gärten im Himmel</h3>
+          <p>Pflanzenwurzeln im Wind.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="4">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Luft/ChatGPT Image 1. Juni 2026, 12_56_12 (2).png" alt="Organische Luftschiffe">
+          <div class="card-hover-text">
+            <span class="chapter-tag">V · Die Mobilität</span>
+            <h3>Organische Luftschiffe</h3>
+            <p>Lebende Luftschiffe gleiten durch die Thermik. Reisen ohne Reibung, Ankommen ohne Hast.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">05</div>
+          <h3>Organische Luftschiffe</h3>
+          <p>Bewegung als natürlicher Zustand.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="5">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Luft/ChatGPT Image 1. Juni 2026, 12_58_12.png" alt="Wissen als Strömung">
+          <div class="card-hover-text">
+            <span class="chapter-tag">VI · Das Wissen</span>
+            <h3>Wissen als Strömung</h3>
+            <p>Ideen fließen frei. Keine Mauern für Gedanken. Kreativität als einzige Währung.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">06</div>
+          <h3>Wissen als Strömung</h3>
+          <p>Gedanken sind die leichteste Form der Materie.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="6">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Luft/ChatGPT Image 1. Juni 2026, 12_58_20.png" alt="Schwebende Gemeinschaften">
+          <div class="card-hover-text">
+            <span class="chapter-tag">VII · Die Gemeinschaft</span>
+            <h3>Schwebende Gemeinschaften</h3>
+            <p>Dörfer aus verbundenen Inseln. Menschen, die zusammen treiben und ankern.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">07</div>
+          <h3>Schwebende Gemeinschaften</h3>
+          <p>Zusammen fliegen — gemeinsam landen.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="7">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Luft/ChatGPT Image 1. Juni 2026, 12_58_53.png" alt="Wind und Licht">
+          <div class="card-hover-text">
+            <span class="chapter-tag">VIII · Die Energie</span>
+            <h3>Wind und Licht</h3>
+            <p>Energie aus Strömungen, Sonnen und dem ewigen Wind. Sauber, still, unerschöpflich.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">08</div>
+          <h3>Wind und Licht</h3>
+          <p>Die Luft selbst trägt alles.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="8">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Luft/ChatGPT Image 1. Juni 2026, 12_59_33.png" alt="Der neue Blick">
+          <div class="card-hover-text">
+            <span class="chapter-tag">IX · Die Perspektive</span>
+            <h3>Der neue Blick</h3>
+            <p>Von oben sieht alles anders aus. Grenzen sind Linien im Sand — aus 1000 Meter Höhe unsichtbar.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">09</div>
+          <h3>Der neue Blick</h3>
+          <p>Wer hoch genug steht, sieht weiter als alle anderen.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="9">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Luft/ChatGPT Image 1. Juni 2026, 13_01_37.png" alt="Über dem Lärm">
+          <div class="card-hover-text">
+            <span class="chapter-tag">X · Die Stille</span>
+            <h3>Über dem Lärm</h3>
+            <p>Hoch genug, und kein Geräusch der Welt erreicht einen mehr. Stille als Privileg.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">10</div>
+          <h3>Über dem Lärm</h3>
+          <p>In der Stille liegt Klarheit.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="10">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Luft/ChatGPT Image 1. Juni 2026, 13_05_47 (1).png" alt="Grenzen ohne Bedeutung">
+          <div class="card-hover-text">
+            <span class="chapter-tag">XI · Die Freiheit</span>
+            <h3>Grenzen ohne Bedeutung</h3>
+            <p>Keine Nation, keine Mauer, kein Pass. Wer in der Luft lebt, gehört der ganzen Welt.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">11</div>
+          <h3>Grenzen ohne Bedeutung</h3>
+          <p>Freiheit als Grundzustand.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="11">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Luft/ChatGPT Image 1. Juni 2026, 13_05_47 (2).png" alt="Über allem">
+          <div class="card-hover-text">
+            <span class="chapter-tag">XII · Die Höhe</span>
+            <h3>Über allem</h3>
+            <p>Die höchsten Punkte der Zivilisation sind nicht Türme — es sind Inseln aus Wolken und Träumen.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">12</div>
+          <h3>Über allem</h3>
+          <p>Der Gipfel ist kein Ende — er ist der Anfang.</p>
+        </div>
+      </article>
+
+      <!-- CHAPTER BREAK -->
+      <div class="chapter-divider" data-spring="fadeup">
+        <span class="mono">Die Kehrseite</span>
+        <h2>Was Freiheit kostet</h2>
+      </div>
+
+      <article class="card-row dark" data-index="12">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Luft/ChatGPT Image 1. Juni 2026, 13_07_37.png" alt="Die Wurzellosigkeit">
+          <div class="card-hover-text">
+            <span class="chapter-tag dim">Kehrseite · I</span>
+            <h3>Die Wurzellosigkeit</h3>
+            <p>Wer nirgends verwurzelt ist, gehört nirgends hin. Freiheit als erzwungener Zustand.</p>
+          </div>
+          <div class="sq-corner tl dim"></div><div class="sq-corner tr dim"></div>
+          <div class="sq-corner bl dim"></div><div class="sq-corner br dim"></div>
+        </div>
+        <div class="card-text dim" data-spring="slidetext">
+          <div class="card-num">13</div>
+          <h3>Die Wurzellosigkeit</h3>
+          <p>Ohne Boden — kein Zuhause.</p>
+        </div>
+      </article>
+
+      <article class="card-row dark" data-index="13">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Luft/ChatGPT Image 1. Juni 2026, 13_08_54.png" alt="Der Sturm">
+          <div class="card-hover-text">
+            <span class="chapter-tag dim">Kehrseite · II</span>
+            <h3>Der Sturm</h3>
+            <p>Hoch oben gibt es keinen Schutz. Was keine Wurzeln hat, wird weggeweht.</p>
+          </div>
+          <div class="sq-corner tl dim"></div><div class="sq-corner tr dim"></div>
+          <div class="sq-corner bl dim"></div><div class="sq-corner br dim"></div>
+        </div>
+        <div class="card-text dim" data-spring="slidetext">
+          <div class="card-num">14</div>
+          <h3>Der Sturm</h3>
+          <p>Die Luft trägt — und reißt fort.</p>
+        </div>
+      </article>
+
+      <article class="card-row dark" data-index="14">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Luft/ChatGPT Image 1. Juni 2026, 13_10_20 (1).png" alt="Die Leere">
+          <div class="card-hover-text">
+            <span class="chapter-tag dim">Kehrseite · III</span>
+            <h3>Die Leere</h3>
+            <p>Freiheit ohne Verbindung ist Einsamkeit in anderer Form.</p>
+          </div>
+          <div class="sq-corner tl dim"></div><div class="sq-corner tr dim"></div>
+          <div class="sq-corner bl dim"></div><div class="sq-corner br dim"></div>
+        </div>
+        <div class="card-text dim" data-spring="slidetext">
+          <div class="card-num">15</div>
+          <h3>Die Leere</h3>
+          <p>Zu viel Weite macht den Menschen klein.</p>
+        </div>
+      </article>
+
+      <article class="card-row dark" data-index="15">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Luft/ChatGPT Image 1. Juni 2026, 13_10_20 (2).png" alt="Zusammenhalt fehlt">
+          <div class="card-hover-text">
+            <span class="chapter-tag dim">Kehrseite · IV</span>
+            <h3>Zusammenhalt fehlt</h3>
+            <p>Eine Gesellschaft ohne gemeinsamen Boden. Ohne Schwerkraft — ohne Verantwortung.</p>
+          </div>
+          <div class="sq-corner tl dim"></div><div class="sq-corner tr dim"></div>
+          <div class="sq-corner bl dim"></div><div class="sq-corner br dim"></div>
+        </div>
+        <div class="card-text dim" data-spring="slidetext">
+          <div class="card-num">16</div>
+          <h3>Zusammenhalt fehlt</h3>
+          <p>Wer immer fliegt, vergisst das Landen.</p>
+        </div>
+      </article>
+
+      <article class="card-row dark" data-index="16">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Luft/ChatGPT Image 1. Juni 2026, 13_11_03.png" alt="Der freie Fall">
+          <div class="card-hover-text">
+            <span class="chapter-tag dim">Ende · oder Anfang?</span>
+            <h3>Der freie Fall</h3>
+            <p>Wenn die Strukturen brechen, gibt es kein Netz. Der Fall ist endlos — bis der Boden antwortet.</p>
+          </div>
+          <div class="sq-corner tl dim"></div><div class="sq-corner tr dim"></div>
+          <div class="sq-corner bl dim"></div><div class="sq-corner br dim"></div>
+        </div>
+        <div class="card-text dim" data-spring="slidetext">
+          <div class="card-num">17</div>
+          <h3>Der freie Fall</h3>
+          <p>Die Luft trägt nur solange, wie man ihr vertraut.</p>
+        </div>
+      </article>
+
+    </div><!-- /path-cards -->
+  </section>
+
+  <!-- FINALE -->
+  <section id="finale">
+    <div class="finale-inner" data-spring="fadeup">
+      <span class="mono">Die Welt der Luft</span>
+      <h2>Keine Utopie.<br>Keine Dystopie.<br>Eine Möglichkeit.</h2>
+      <p>Eine Zukunft voller schwebender Schönheit — und voller Fragen nach Bodenhaftung. Freiheit und Wurzellosigkeit. Offenheit und Halt.</p>
+      <div class="finale-question">
+        Welche Elemente der Luftwelt<br>
+        leben bereits heute in unserer Gesellschaft?<br>
+        Und welche Zukunft wollen wir gestalten?
+      </div>
+    </div>
+  </section>
+
+  <section id="outro-network">
+    <canvas></canvas>
+    <div class="outro-text"><p>Weiter scrollen · Zurück zur Übersicht</p></div>
+  </section>
+
+  <script>window.ELEMENT_COLOR = { r:136, g:204, b:221, hex:'#88ccdd', bg:'#060809' };</script>
+  <script src="main.js"></script>
+</body>
+</html>

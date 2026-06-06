@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ERDE – Die vier Elemente der Zukunft</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+  .back-link { position:fixed; top:1.4rem; left:1.6rem; z-index:8500; font-family:'CommitMono',monospace; font-size:0.75rem; color:var(--text-dim); text-decoration:none; letter-spacing:0.15em; opacity:0.5; transition:opacity 0.2s; }
+  .back-link:hover { opacity:1; color:var(--green-bright); }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back-link" title="Zurück zur Übersicht">←</a>
+
+  <!-- SPINE CANVAS — unified organic path, fixed overlay -->
+  <canvas id="spine-canvas"></canvas>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-label">Erde · wird geladen</div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar" id="lbar"></div>
+    </div>
+    <div class="loader-pct" id="lpct">0%</div>
+  </div>
+
+  <!-- PROGRESS -->
+  <div id="progress-bar"></div>
+
+  <!-- ════════════════════════════════
+       HERO
+  ════════════════════════════════ -->
+  <section id="hero">
+    <canvas id="hero-canvas"></canvas>
+
+    <div class="hero-center">
+      <div class="floating-square" id="floatSquare">
+        <div class="sq-inner"></div>
+        <div class="sq-corner tl"></div>
+        <div class="sq-corner tr"></div>
+        <div class="sq-corner bl"></div>
+        <div class="sq-corner br"></div>
+      </div>
+    </div>
+
+    <div class="hero-text" id="heroText">
+      <span class="hero-overline">Die vier Elemente der Zukunft · I</span>
+      <h1 class="hero-title">ERDE</h1>
+      <p class="hero-sub">Beständigkeit · Gemeinschaft · Kreisläufe</p>
+    </div>
+
+    <div class="scroll-cue" id="scrollCue">
+      <span>Scrollen</span>
+      <div class="scroll-tick"></div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       NETWORK SECTION (scroll-driven lines)
+  ════════════════════════════════ -->
+  <section id="network-section">
+    <canvas id="network-canvas"></canvas>
+    <div class="network-text">
+      <h2 class="net-heading" data-spring="fadeup">Eine Welt aus Stein und Wachstum</h2>
+      <p class="net-body" data-spring="fadeup" data-delay="0.15">Architektur, Landwirtschaft und Gesellschaft folgen dem Rhythmus der Natur — langsam, tief verwurzelt, auf Jahrhunderte gebaut.</p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       CARDS SECTION
+  ════════════════════════════════ -->
+  <section id="cards-section">
+
+    <div class="cards-intro" data-spring="fadeup">
+      <span class="mono">Die Geschichte der Erde</span>
+      <h2>Eine Welt in 17 Bildern</h2>
+    </div>
+
+    <div class="path-cards" id="pathCards">
+      <!-- LIGHT CHAPTER -->
+
+      <article class="card-row" data-index="0">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Erde/ChatGPT Image 31. Mai 2026, 14_26_19.png" alt="Eine Welt aus Stein und Grün">
+          <div class="card-hover-text">
+            <span class="chapter-tag">I · Die Vision</span>
+            <h3>Eine Welt aus Stein und Grün</h3>
+            <p>Biomorphe Gebäude wachsen an Berghängen. Wasserfälle rauschen durch Straßen. Natur und Architektur sind untrennbar.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">01</div>
+          <h3>Die erste Vision</h3>
+          <p>Zivilisation, die in die Erde hineinwächst statt über sie hinaus.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="1">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Erde/ChatGPT Image 31. Mai 2026, 14_26_23.png" alt="Monumentale Stille">
+          <div class="card-hover-text">
+            <span class="chapter-tag">II · Die Architektur</span>
+            <h3>Monumentale Stille</h3>
+            <p>Türme, keine Türme — gewachsene Strukturen, gespeist von Regen und Licht. Jeder Bogen trägt eine Geschichte.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">02</div>
+          <h3>Monumentale Stille</h3>
+          <p>Ein Gebäude dauert Jahrzehnte. Es wird von Enkeln bewohnt, die es nicht planten.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="2">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Erde/ChatGPT Image 31. Mai 2026, 14_28_59.png" alt="Moos und Marmor">
+          <div class="card-hover-text">
+            <span class="chapter-tag">III · Das Leben</span>
+            <h3>Moos und Marmor</h3>
+            <p>Die Grenze zwischen Innen und Außen existiert nicht. Das Haus atmet. Es lebt mit seiner Umgebung.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">03</div>
+          <h3>Moos und Marmor</h3>
+          <p>Im Innenhof: ein Teich, Rankgewächse über steinernen Bögen, warmes Licht auf handgefertigten Möbeln.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="3">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Erde/ChatGPT Image 31. Mai 2026, 14_33_40.png" alt="Kristalline Erde">
+          <div class="card-hover-text">
+            <span class="chapter-tag">IV · Die Wildnis</span>
+            <h3>Kristalline Erde</h3>
+            <p>Eine Erde, die sich selbst gehört. Kristallformationen wachsen aus dem Boden — als hätte die Erde begonnen, sich neu zu erinnern.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">04</div>
+          <h3>Kristalline Erde</h3>
+          <p>Was Natur werden kann, wenn der Mensch aufhört, sie zu beherrschen.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="4">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Erde/ChatGPT Image 31. Mai 2026, 14_36_44.png" alt="Uralte Wächter">
+          <div class="card-hover-text">
+            <span class="chapter-tag">V · Der Baum</span>
+            <h3>Uralte Wächter</h3>
+            <p>Er hat Generationen gesehen. Stürme, Dürren, Aufstieg und Fall von Gemeinschaften. Und er steht noch.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">05</div>
+          <h3>Uralte Wächter</h3>
+          <p>In der Welt der Erde ist Langlebigkeit kein Ziel — sie ist ein Beweis.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="5">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Erde/ChatGPT Image 31. Mai 2026, 14_40_14 (2).png" alt="Das fruchtbare Herz">
+          <div class="card-hover-text">
+            <span class="chapter-tag">VI · Das Tal</span>
+            <h3>Das fruchtbare Herz</h3>
+            <p>Nicht weil das Tal perfekt war — sondern weil es genug war. Das Prinzip der Genügsamkeit ist das erste Gesetz.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">06</div>
+          <h3>Das fruchtbare Herz</h3>
+          <p>Genug Wasser. Genug Boden. Genug Schutz.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="6">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Erde/ChatGPT Image 31. Mai 2026, 14_43_24.png" alt="Hände, die bauen">
+          <div class="card-hover-text">
+            <span class="chapter-tag">VII · Das Handwerk</span>
+            <h3>Hände, die bauen</h3>
+            <p>Die Handwerker sind keine Arbeiter — sie sind Hüter. Hüter von Techniken, die in ihren Händen leben.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">07</div>
+          <h3>Hände, die bauen</h3>
+          <p>Stein für Stein. Jede Fuge gesetzt mit dem Wissen, dass sie Jahrhunderte halten soll.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="7">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Erde/ChatGPT Image 31. Mai 2026, 14_50_03.png" alt="Rhythmus der Jahreszeiten">
+          <div class="card-hover-text">
+            <span class="chapter-tag">VIII · Die Ernte</span>
+            <h3>Rhythmus der Jahreszeiten</h3>
+            <p>Die Menschen kennen die Erde unter ihren Fingernägeln — nicht durch Algorithmen, sondern durch Beobachtung.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">08</div>
+          <h3>Rhythmus der Jahreszeiten</h3>
+          <p>Landwirtschaft als Meditation. Eine Gemeinschaft, die sich selbst ernährt.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="8">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Erde/ChatGPT Image 31. Mai 2026, 14_52_37.png" alt="Der Platz als Herz">
+          <div class="card-hover-text">
+            <span class="chapter-tag">IX · Die Gemeinschaft</span>
+            <h3>Der Platz als Herz</h3>
+            <p>Entscheidungen werden nicht in Konferenzsälen getroffen — sondern unter dem alten Baum, im Gespräch.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">09</div>
+          <h3>Der Platz als Herz</h3>
+          <p>Nähe statt Reichweite. Tiefe Bindungen statt globaler Vernetzung.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="9">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Erde/ChatGPT Image 31. Mai 2026, 14_54_41.png" alt="Die lebendige Bibliothek">
+          <div class="card-hover-text">
+            <span class="chapter-tag">X · Das Wissen</span>
+            <h3>Die lebendige Bibliothek</h3>
+            <p>Wissen wird nicht gespeichert — es wird gepflegt. Bücher und Pflanzen wachsen nebeneinander.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">10</div>
+          <h3>Die lebendige Bibliothek</h3>
+          <p>Das Wissen dieser Welt ist nie losgelöst von der Erde, die es hervorbrachte.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="10">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Erde/ChatGPT Image 31. Mai 2026, 14_58_54.png" alt="Die wachsende Siedlung">
+          <div class="card-hover-text">
+            <span class="chapter-tag">XI · Die Stadt</span>
+            <h3>Die wachsende Siedlung</h3>
+            <p>Diese Stadt kennt keine Skyline. Ihr höchster Punkt ist ein Baum. Ihre Silhouette folgt dem Gebirge.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">11</div>
+          <h3>Die wachsende Siedlung</h3>
+          <p>Terrassen, Wasserkanäle, Werkstätten. Eine Stadt, die zur Landschaft gehört.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="11">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Erde/ChatGPT Image 31. Mai 2026, 14_58_56.png" alt="Stein und Stille">
+          <div class="card-hover-text">
+            <span class="chapter-tag">XII · Die Heimat</span>
+            <h3>Stein und Stille</h3>
+            <p>Das Haus ist alt — und das ist kein Mangel, sondern ein Versprechen. Hier beginnt die Grenze.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">12</div>
+          <h3>Stein und Stille</h3>
+          <p>Die Schönheit der Beständigkeit trägt den Schatten der Erstarrung.</p>
+        </div>
+      </article>
+
+      <!-- CHAPTER BREAK -->
+      <div class="chapter-divider" data-spring="fadeup">
+        <span class="mono">Die Kehrseite</span>
+        <h2>Was Stabilität kostet</h2>
+      </div>
+
+      <article class="card-row dark" data-index="12">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Erde/ChatGPT Image 31. Mai 2026, 15_03_15.png" alt="Der Aufbruch">
+          <div class="card-hover-text">
+            <span class="chapter-tag dim">Kehrseite · I</span>
+            <h3>Der Aufbruch</h3>
+            <p>Nicht alle wollen bleiben. Es gibt jene, die ihre Stabilität als Käfig empfinden und Fragen stellen, auf die niemand antworten will.</p>
+          </div>
+          <div class="sq-corner tl dim"></div><div class="sq-corner tr dim"></div>
+          <div class="sq-corner bl dim"></div><div class="sq-corner br dim"></div>
+        </div>
+        <div class="card-text dim" data-spring="slidetext">
+          <div class="card-num">13</div>
+          <h3>Der Aufbruch</h3>
+          <p>Wer die Wurzeln liebt, darf die Flügel nicht vergessen.</p>
+        </div>
+      </article>
+
+      <article class="card-row dark" data-index="13">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Erde/ChatGPT Image 31. Mai 2026, 15_09_08.png" alt="Infrastruktur des Vergessens">
+          <div class="card-hover-text">
+            <span class="chapter-tag dim">Kehrseite · II</span>
+            <h3>Infrastruktur des Vergessens</h3>
+            <p>»Straße gesperrt seit 2012.« Das Alte ist heilig. Auch das Kaputte. Stabilität ohne Erneuerung ist Verfall.</p>
+          </div>
+          <div class="sq-corner tl dim"></div><div class="sq-corner tr dim"></div>
+          <div class="sq-corner bl dim"></div><div class="sq-corner br dim"></div>
+        </div>
+        <div class="card-text dim" data-spring="slidetext">
+          <div class="card-num">14</div>
+          <h3>Infrastruktur des Vergessens</h3>
+          <p>Was nicht mehr dient, verrottet — aber niemand darf es abreißen.</p>
+        </div>
+      </article>
+
+      <article class="card-row dark" data-index="14">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Erde/ChatGPT Image 31. Mai 2026, 15_18_47.png" alt="Kontrolle">
+          <div class="card-hover-text">
+            <span class="chapter-tag dim">Kehrseite · III</span>
+            <h3>Einheit · Ordnung · Tradition</h3>
+            <p>»Konformität wird erwartet.« Was als Gemeinschaft begann, wird zur Kontrolle. Das Kollektiv verschluckt das Individuum.</p>
+          </div>
+          <div class="sq-corner tl dim"></div><div class="sq-corner tr dim"></div>
+          <div class="sq-corner bl dim"></div><div class="sq-corner br dim"></div>
+        </div>
+        <div class="card-text dim" data-spring="slidetext">
+          <div class="card-num">15</div>
+          <h3>Kontrolle</h3>
+          <p>Sicherheit, die Freiheit kostet, ist keine Sicherheit mehr.</p>
+        </div>
+      </article>
+
+      <article class="card-row dark" data-index="15">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Erde/ChatGPT Image 31. Mai 2026, 15_21_17.png" alt="Neue Ideen: Abgelehnt">
+          <div class="card-hover-text">
+            <span class="chapter-tag dim">Kehrseite · IV</span>
+            <h3>Neue Ideen: Abgelehnt</h3>
+            <p>Eine Gesellschaft, die Nachhaltigkeit predigt, aber Wandel verbietet. Die das Leben der Erde liebt, sie aber nicht verändern lässt.</p>
+          </div>
+          <div class="sq-corner tl dim"></div><div class="sq-corner tr dim"></div>
+          <div class="sq-corner bl dim"></div><div class="sq-corner br dim"></div>
+        </div>
+        <div class="card-text dim" data-spring="slidetext">
+          <div class="card-num">16</div>
+          <h3>Neue Ideen: Abgelehnt</h3>
+          <p>Eine Welt, die nie lernt, verrottet — auch wenn sie schön dabei aussieht.</p>
+        </div>
+      </article>
+
+      <article class="card-row dark" data-index="16">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Erde/ChatGPT Image 31. Mai 2026, 15_23_43.png" alt="Vergangene Größe">
+          <div class="card-hover-text">
+            <span class="chapter-tag dim">Ende · oder Anfang?</span>
+            <h3>Vergangene Größe</h3>
+            <p>»Stolz und Macht in Stein gegossen — doch die Zeit hat überwuchert.« Die Ruinen zeigen, was passiert, wenn eine Gesellschaft sich selbst einschließt.</p>
+          </div>
+          <div class="sq-corner tl dim"></div><div class="sq-corner tr dim"></div>
+          <div class="sq-corner bl dim"></div><div class="sq-corner br dim"></div>
+        </div>
+        <div class="card-text dim" data-spring="slidetext">
+          <div class="card-num">17</div>
+          <h3>Vergangene Größe</h3>
+          <p>Der Reiter schaut in eine Zukunft, die seine Gesellschaft nicht mehr erreichte.</p>
+        </div>
+      </article>
+
+    </div><!-- /path-cards -->
+  </section>
+
+  <!-- FINALE -->
+  <section id="finale">
+    <div class="finale-inner" data-spring="fadeup">
+      <span class="mono">Die Welt der Erde</span>
+      <h2>Keine Utopie.<br>Keine Dystopie.<br>Eine Möglichkeit.</h2>
+      <p>Eine Zukunft voller atemberaubender Schönheit — und voller gefährlicher Tendenzen. Beständigkeit und Erstarrung. Gemeinschaft und Kontrolle.</p>
+      <div class="finale-question">
+        Welche Elemente der Erdwelt<br>
+        leben bereits heute in unserer Gesellschaft?<br>
+        Und welche Zukunft wollen wir gestalten?
+      </div>
+    </div>
+  </section>
+
+  <section id="outro-network">
+    <canvas></canvas>
+    <div class="outro-text"><p>Weiter scrollen · Zurück zur Übersicht</p></div>
+  </section>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WASSER – Die vier Elemente der Zukunft</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+  :root {
+    --bg:           #040810;
+    --green:        #0a3060;
+    --green-mid:    #1a6aab;
+    --green-bright: #42b4f0;
+    --green-glow:   rgba(66,180,240,0.65);
+    --line-glow:    0 0 6px rgba(66,180,240,0.9), 0 0 18px rgba(66,180,240,0.4);
+    --stone:        #607080;
+    --stone-dim:    #3a4858;
+  }
+  .back-link { position:fixed; top:1.4rem; left:1.6rem; z-index:8500; font-family:'CommitMono',monospace; font-size:0.75rem; color:var(--text-dim); text-decoration:none; letter-spacing:0.15em; opacity:0.5; transition:opacity 0.2s; }
+  .back-link:hover { opacity:1; color:var(--green-bright); }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back-link" title="Zurück zur Übersicht">←</a>
+
+  <!-- SPINE CANVAS -->
+  <canvas id="spine-canvas"></canvas>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-label">Wasser · wird geladen</div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar" id="lbar"></div>
+    </div>
+    <div class="loader-pct" id="lpct">0%</div>
+  </div>
+
+  <!-- PROGRESS -->
+  <div id="progress-bar"></div>
+
+  <section id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-center">
+      <div class="floating-square" id="floatSquare">
+        <div class="sq-inner"></div>
+        <div class="sq-corner tl"></div>
+        <div class="sq-corner tr"></div>
+        <div class="sq-corner bl"></div>
+        <div class="sq-corner br"></div>
+      </div>
+    </div>
+    <div class="hero-text" id="heroText">
+      <span class="hero-overline">Die vier Elemente der Zukunft · III</span>
+      <h1 class="hero-title">WASSER</h1>
+      <p class="hero-sub">Anpassung · Vernetzung · Wandel</p>
+    </div>
+    <div class="scroll-cue" id="scrollCue">
+      <span>Scrollen</span>
+      <div class="scroll-tick"></div>
+    </div>
+  </section>
+
+  <section id="network-section">
+    <canvas id="network-canvas"></canvas>
+    <div class="network-text">
+      <h2 class="net-heading" data-spring="fadeup">Eine Welt aus Tiefe und Strömung</h2>
+      <p class="net-body" data-spring="fadeup" data-delay="0.15">Schwimmende Städte, Korallenmetropolen und Unterwasserarchitekturen — eine Zukunft, in der Technologie und Natur im ständigen Fluss verschmelzen.</p>
+    </div>
+  </section>
+
+  <section id="cards-section">
+
+    <div class="cards-intro" data-spring="fadeup">
+      <span class="mono">Die Geschichte des Wassers</span>
+      <h2>Eine Welt in 17 Bildern</h2>
+    </div>
+
+    <div class="path-cards" id="pathCards">
+
+      <article class="card-row" data-index="0">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Wasser/ChatGPT Image 31. Mai 2026, 13_20_14.png" alt="Eine Welt aus Wasser">
+          <div class="card-hover-text">
+            <span class="chapter-tag">I · Die Vision</span>
+            <h3>Eine Welt aus Wasser</h3>
+            <p>Die Küsten sind verschwunden. Neue Städte treiben auf dem Ozean.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">01</div>
+          <h3>Die erste Vision</h3>
+          <p>Zivilisation, die gelernt hat zu fließen statt zu stehen.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="1">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Wasser/ChatGPT Image 31. Mai 2026, 13_22_30.png" alt="Schwimmende Städte">
+          <div class="card-hover-text">
+            <span class="chapter-tag">II · Die Architektur</span>
+            <h3>Schwimmende Städte</h3>
+            <p>Biomorphe Plattformen verbinden sich zu Metropolen ohne festen Boden.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">02</div>
+          <h3>Schwimmende Städte</h3>
+          <p>Jede Flut formt die Stadt neu.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="2">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Wasser/ChatGPT Image 31. Mai 2026, 13_23_46.png" alt="Unter dem Spiegel">
+          <div class="card-hover-text">
+            <span class="chapter-tag">III · Die Tiefe</span>
+            <h3>Unter dem Spiegel</h3>
+            <p>Unterwasserarchitekturen dehnen sich in der Stille des Meeresbodens aus.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">03</div>
+          <h3>Unter dem Spiegel</h3>
+          <p>Die Tiefe birgt mehr Raum als alle Kontinente.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="3">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Wasser/ChatGPT Image 31. Mai 2026, 13_24_52.png" alt="Korallenmetropolen">
+          <div class="card-hover-text">
+            <span class="chapter-tag">IV · Das Riff</span>
+            <h3>Korallenmetropolen</h3>
+            <p>Biologische und technische Systeme wachsen zusammen zu lebenden Städten.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">04</div>
+          <h3>Korallenmetropolen</h3>
+          <p>Wenn die Stadt selbst atmet und wächst.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="4">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Wasser/ChatGPT Image 31. Mai 2026, 13_26_17.png" alt="Alles fließt">
+          <div class="card-hover-text">
+            <span class="chapter-tag">V · Die Strömung</span>
+            <h3>Alles fließt</h3>
+            <p>Transportwege folgen Meeresströmungen. Energie kommt aus Wellen und Gezeiten.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">05</div>
+          <h3>Alles fließt</h3>
+          <p>Die Natur lehrt die Ingenieure.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="5">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Wasser/ChatGPT Image 31. Mai 2026, 13_28_00.png" alt="Biolumineszenz">
+          <div class="card-hover-text">
+            <span class="chapter-tag">VI · Das Licht</span>
+            <h3>Biolumineszenz</h3>
+            <p>Lebende Organismen erleuchten die Städte. Licht als Lebensform.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">06</div>
+          <h3>Biolumineszenz</h3>
+          <p>Das Meer hat seine eigene Sprache des Lichts.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="6">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Wasser/ChatGPT Image 31. Mai 2026, 13_28_13.png" alt="Netzwerke des Lebens">
+          <div class="card-hover-text">
+            <span class="chapter-tag">VII · Die Verbindung</span>
+            <h3>Netzwerke des Lebens</h3>
+            <p>Symbiotische Systeme verbinden Mensch, Natur und Technologie.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">07</div>
+          <h3>Netzwerke des Lebens</h3>
+          <p>Das Wasser verbindet, was die Erde trennt.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="7">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Wasser/ChatGPT Image 31. Mai 2026, 13_31_20.png" alt="Mit dem Wandel leben">
+          <div class="card-hover-text">
+            <span class="chapter-tag">VIII · Die Anpassung</span>
+            <h3>Mit dem Wandel leben</h3>
+            <p>Keine Mauer hält das Wasser. Also baut man mit ihm, nicht gegen es.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">08</div>
+          <h3>Mit dem Wandel leben</h3>
+          <p>Flexibilität als höchste Form der Intelligenz.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="8">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Wasser/ChatGPT Image 31. Mai 2026, 13_33_24.png" alt="Leben in Bewegung">
+          <div class="card-hover-text">
+            <span class="chapter-tag">IX · Die Gemeinschaft</span>
+            <h3>Leben in Bewegung</h3>
+            <p>Gemeinschaften, die sich mit den Strömungen verschieben. Heimat ist ein Gefühl, kein Ort.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">09</div>
+          <h3>Leben in Bewegung</h3>
+          <p>Zusammen treiben — gemeinsam ankern.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="9">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Wasser/ChatGPT Image 31. Mai 2026, 13_34_48.png" alt="Symbiose als Prinzip">
+          <div class="card-hover-text">
+            <span class="chapter-tag">X · Das Gleichgewicht</span>
+            <h3>Symbiose als Prinzip</h3>
+            <p>Jede Struktur gibt dem Ökosystem zurück, was sie nimmt.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">10</div>
+          <h3>Symbiose als Prinzip</h3>
+          <p>Das Wasser verzeiht keine Gier.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="10">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Wasser/ChatGPT Image 31. Mai 2026, 13_36_34.png" alt="Das kostbarste Gut">
+          <div class="card-hover-text">
+            <span class="chapter-tag">XI · Die Ressource</span>
+            <h3>Das kostbarste Gut</h3>
+            <p>Sauberes Wasser ist Macht. Wer es kontrolliert, formt die Welt.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">11</div>
+          <h3>Das kostbarste Gut</h3>
+          <p>Was überall ist, wird selten.</p>
+        </div>
+      </article>
+
+      <article class="card-row" data-index="11">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Wasser/ChatGPT Image 31. Mai 2026, 13_38_02.png" alt="Kein Land in Sicht">
+          <div class="card-hover-text">
+            <span class="chapter-tag">XII · Der Horizont</span>
+            <h3>Kein Land in Sicht</h3>
+            <p>Weite ohne Grenzen. Freiheit und Verlassenheit sind Geschwister auf dem offenen Meer.</p>
+          </div>
+          <div class="sq-corner tl"></div><div class="sq-corner tr"></div>
+          <div class="sq-corner bl"></div><div class="sq-corner br"></div>
+        </div>
+        <div class="card-text" data-spring="slidetext">
+          <div class="card-num">12</div>
+          <h3>Kein Land in Sicht</h3>
+          <p>Freiheit und Orientierungslosigkeit — zwei Seiten einer Münze.</p>
+        </div>
+      </article>
+
+      <!-- CHAPTER BREAK -->
+      <div class="chapter-divider" data-spring="fadeup">
+        <span class="mono">Die Kehrseite</span>
+        <h2>Was Anpassung kostet</h2>
+      </div>
+
+      <article class="card-row dark" data-index="12">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Wasser/ChatGPT Image 31. Mai 2026, 13_41_01.png" alt="Die Flut">
+          <div class="card-hover-text">
+            <span class="chapter-tag dim">Kehrseite · I</span>
+            <h3>Die Flut</h3>
+            <p>Wenn das Wasser steigt, gibt es keinen höheren Boden mehr. Die Küsten ertrinken.</p>
+          </div>
+          <div class="sq-corner tl dim"></div><div class="sq-corner tr dim"></div>
+          <div class="sq-corner bl dim"></div><div class="sq-corner br dim"></div>
+        </div>
+        <div class="card-text dim" data-spring="slidetext">
+          <div class="card-num">13</div>
+          <h3>Die Flut</h3>
+          <p>Anpassung hat Grenzen — die Flut nicht.</p>
+        </div>
+      </article>
+
+      <article class="card-row dark" data-index="13">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Wasser/ChatGPT Image 31. Mai 2026, 13_41_53.png" alt="Der Sturm">
+          <div class="card-hover-text">
+            <span class="chapter-tag dim">Kehrseite · II</span>
+            <h3>Der Sturm</h3>
+            <p>Megastürme fegen über die schwimmenden Städte. Was gebaut wurde, wird weggerissen.</p>
+          </div>
+          <div class="sq-corner tl dim"></div><div class="sq-corner tr dim"></div>
+          <div class="sq-corner bl dim"></div><div class="sq-corner br dim"></div>
+        </div>
+        <div class="card-text dim" data-spring="slidetext">
+          <div class="card-num">14</div>
+          <h3>Der Sturm</h3>
+          <p>Das Wasser gibt — und nimmt zurück.</p>
+        </div>
+      </article>
+
+      <article class="card-row dark" data-index="14">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Wasser/ChatGPT Image 31. Mai 2026, 13_43_12.png" alt="Heimatverlust">
+          <div class="card-hover-text">
+            <span class="chapter-tag dim">Kehrseite · III</span>
+            <h3>Heimatverlust</h3>
+            <p>Alles, was je an einem Ort verwurzelt war, ist versunken. Erinnerung als einzige Heimat.</p>
+          </div>
+          <div class="sq-corner tl dim"></div><div class="sq-corner tr dim"></div>
+          <div class="sq-corner bl dim"></div><div class="sq-corner br dim"></div>
+        </div>
+        <div class="card-text dim" data-spring="slidetext">
+          <div class="card-num">15</div>
+          <h3>Heimatverlust</h3>
+          <p>Die Tiefe bewahrt, was die Oberfläche vergisst.</p>
+        </div>
+      </article>
+
+      <article class="card-row dark" data-index="15">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Wasser/ChatGPT Image 31. Mai 2026, 13_44_23.png" alt="Unter der Oberfläche">
+          <div class="card-hover-text">
+            <span class="chapter-tag dim">Kehrseite · IV</span>
+            <h3>Unter der Oberfläche</h3>
+            <p>Was im Wasser lebt, sieht man nicht. Unsichtbare Systeme tragen die Welt — bis sie brechen.</p>
+          </div>
+          <div class="sq-corner tl dim"></div><div class="sq-corner tr dim"></div>
+          <div class="sq-corner bl dim"></div><div class="sq-corner br dim"></div>
+        </div>
+        <div class="card-text dim" data-spring="slidetext">
+          <div class="card-num">16</div>
+          <h3>Unter der Oberfläche</h3>
+          <p>Das Unsichtbare trägt alles.</p>
+        </div>
+      </article>
+
+      <article class="card-row dark" data-index="16">
+        <div class="card-img-wrap" data-spring="card">
+          <img src="media/Element_Wasser/ChatGPT Image 31. Mai 2026, 13_45_07.png" alt="Die ruhige Tiefe">
+          <div class="card-hover-text">
+            <span class="chapter-tag dim">Ende · oder Anfang?</span>
+            <h3>Die ruhige Tiefe</h3>
+            <p>Am Boden des Ozeans — absolute Stille. Keine Systeme, kein Lärm. Nur Druck und Dunkel.</p>
+          </div>
+          <div class="sq-corner tl dim"></div><div class="sq-corner tr dim"></div>
+          <div class="sq-corner bl dim"></div><div class="sq-corner br dim"></div>
+        </div>
+        <div class="card-text dim" data-spring="slidetext">
+          <div class="card-num">17</div>
+          <h3>Die ruhige Tiefe</h3>
+          <p>Im tiefsten Punkt liegt vielleicht der Anfang.</p>
+        </div>
+      </article>
+
+    </div><!-- /path-cards -->
+  </section>
+
+  <!-- FINALE -->
+  <section id="finale">
+    <div class="finale-inner" data-spring="fadeup">
+      <span class="mono">Die Welt des Wassers</span>
+      <h2>Keine Utopie.<br>Keine Dystopie.<br>Eine Möglichkeit.</h2>
+      <p>Eine Zukunft voller fließender Schönheit — und voller verborgener Tiefen. Anpassung und Orientierungslosigkeit. Verbindung und Verlust.</p>
+      <div class="finale-question">
+        Welche Elemente der Wasserwelt<br>
+        leben bereits heute in unserer Gesellschaft?<br>
+        Und welche Zukunft wollen wir gestalten?
+      </div>
+    </div>
+  </section>
+
+  <section id="outro-network">
+    <canvas></canvas>
+    <div class="outro-text"><p>Weiter scrollen · Zurück zur Übersicht</p></div>
+  </section>
+
+  <script>window.ELEMENT_COLOR = { r:66, g:180, b:240, hex:'#42b4f0', bg:'#040810' };</script>
+  <script src="main.js"></script>
+</body>
+</html>

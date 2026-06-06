@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Die vier Elemente der Zukunft</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- FIXED OVERLAYS -->
+  <canvas id="spine-canvas"></canvas>
+  <div id="progress-bar"></div>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-label" id="loader-label">Die vier Elemente · wird geladen</div>
+    <div class="loader-bar-wrap"><div class="loader-bar" id="lbar"></div></div>
+    <div class="loader-pct" id="lpct">0%</div>
+  </div>
+
+  <!-- START SECTION -->
+  <section id="start" data-theme="start">
+    <canvas id="start-canvas"></canvas>
+    <div id="start-inner">
+      <span class="start-overline">Eine visuelle Spekulation über Gesellschaft, Umwelt und Kultur</span>
+      <h1 class="start-title">Die vier Elemente<br>der Zukunft</h1>
+      <div class="elements-row" id="elements-row"></div>
+    </div>
+  </section>
+
+  <!-- ELEMENT SECTIONS — built dynamically by main.js -->
+  <div id="element-sections"></div>
+
+  <!-- GLOBAL FINALE -->
+  <section id="global-finale">
+    <canvas id="finale-canvas"></canvas>
+    <div class="finale-loop-inner" id="finale-loop-inner">
+      <span class="finale-loop-label">Weiter scrollen</span>
+      <div class="scroll-tick"></div>
+    </div>
+  </section>
+
+  <script src="main.js"></script>
+</body>
+</html>
